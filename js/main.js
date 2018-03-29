@@ -8,9 +8,9 @@ var markers = []
  * Register service worker
  */
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js')
-    .then(reg => console.log('sw registered', reg))
-    .catch(err => console.log('err occured', err));
+  navigator.serviceWorker.register('/sw.js');
+    // .then(reg => console.log('sw registered', reg))
+    // .catch(err => console.log('err occured', err));
 }
 
 /**
@@ -150,6 +150,8 @@ createRestaurantHTML = (restaurant) => {
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = restaurant.name + ' restaurant';
+  console.log('restaurant :', restaurant);
   li.append(image);
 
   const name = document.createElement('h1');
