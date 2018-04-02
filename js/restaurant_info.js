@@ -2,6 +2,15 @@ let restaurant;
 var map;
 
 /**
+ * Register service worker
+ */
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js')
+    .then(reg => console.log('sw registered', reg))
+    .catch(err => console.log('err occured', err));
+}
+
+/**
  * Initialize Google map, called from HTML.
  */
 window.initMap = () => {
